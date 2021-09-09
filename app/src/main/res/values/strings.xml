@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NewsTask</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="news">News</string>
+    <string name="search">Search</string>
+</resources>
