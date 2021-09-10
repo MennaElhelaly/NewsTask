@@ -13,11 +13,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel (application: Application) : AndroidViewModel(application) {
 
     var newsArticlesLiveData = MutableLiveData<List<Article>>()
-    var apiRepository: RemoteDataSource
-
-    init{
-        apiRepository = RemoteDataSource(application)
-    }
+    var apiRepository: RemoteDataSource = RemoteDataSource()
 
     fun getAPINews() {
         CoroutineScope(Dispatchers.IO).launch {

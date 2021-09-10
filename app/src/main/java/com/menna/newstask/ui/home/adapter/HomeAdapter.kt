@@ -38,23 +38,18 @@ class HomeAdapter(var news: ArrayList<Article>, var listener: OnHomeItemListener
 
         }
         init {
-            imageView.setOnClickListener(this)
+            itemView.setOnClickListener(this)
         }
         override fun onClick(p0: View?) {
-            listener.onImageClick(news[adapterPosition])
-
-//            when(p0){
-//                imageView->{
-//                    listener.onImageClick(news[adapterPosition])
-//                }
-//                title ->{
-//                    listener.onImageClick(news[adapterPosition])
-//                }
-//            }
+            when(p0){
+                itemView ->{
+                    listener.onItemClick(news[adapterPosition])
+                }
+            }
         }
     }
     interface OnHomeItemListener
     {
-        fun onImageClick(item: Article)
+        fun onItemClick(item: Article)
     }
 }

@@ -1,5 +1,6 @@
 package com.menna.newstask.ui.search
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -14,6 +15,7 @@ import com.example.graduationapp.ui.cart.adapter.HomeAdapter
 import com.menna.newstask.R
 import com.menna.newstask.data_layer.entity.Article
 import com.menna.newstask.databinding.ActivitySearchBinding
+import com.menna.newstask.ui.details.DetailsActivity
 
 class SearchActivity : AppCompatActivity(),  HomeAdapter.OnHomeItemListener{
     lateinit var binding: ActivitySearchBinding
@@ -85,7 +87,11 @@ class SearchActivity : AppCompatActivity(),  HomeAdapter.OnHomeItemListener{
 
     }
 
-    override fun onImageClick(item: Article) {
-        TODO("Not yet implemented")
+    override fun onItemClick(item: Article) {
+        val intent= Intent(this, DetailsActivity::class.java)
+        intent.putExtra("image",item.urlToImage )
+        intent.putExtra("title",item.title)
+        intent.putExtra("description",item.description)
+        startActivity(intent)
     }
 }

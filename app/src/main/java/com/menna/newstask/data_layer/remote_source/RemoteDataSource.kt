@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.menna.newstask.data_layer.entity.News
 
-class RemoteDataSource (application: Application){
+class RemoteDataSource (){
     suspend fun getAPINews(): News?{
         val response = NewsService.newsService.getAPINews(country ="eg" , apiKey ="63b1f94dad044add871d1e319c630265")
         try {

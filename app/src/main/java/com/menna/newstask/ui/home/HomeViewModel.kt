@@ -13,16 +13,11 @@ import kotlinx.coroutines.launch
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     var newsArticlesLiveData = MutableLiveData<List<Article>>()
-    var apiRepository: RemoteDataSource
-
-    init{
-        apiRepository = RemoteDataSource(application)
-    }
+    var apiRepository: RemoteDataSource = RemoteDataSource()
 
     fun getAPINews() {
         CoroutineScope(Dispatchers.IO).launch {
             val response = apiRepository.getAPINews()
-            Log.i("Menna", "" + response)
             newsArticlesLiveData.postValue(response?.articles)
         }
 

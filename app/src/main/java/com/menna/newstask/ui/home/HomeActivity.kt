@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ class HomeActivity : AppCompatActivity(), HomeAdapter.OnHomeItemListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityHomeBinding.inflate(layoutInflater)
         //hide actionBar
         val actionBar = supportActionBar
@@ -49,18 +51,11 @@ class HomeActivity : AppCompatActivity(), HomeAdapter.OnHomeItemListener {
 
     }
 
-    override fun onImageClick(item: Article) {
+    override fun onItemClick(item: Article) {
         val intent= Intent(this, DetailsActivity::class.java)
         intent.putExtra("image",item.urlToImage )
         intent.putExtra("title",item.title)
         intent.putExtra("description",item.description)
         startActivity(intent)
-
-//        val intent=Intent(this,DetailsActivity::class.java)
-//
-//        val b = Bundle()
-//        b.putSerializable("selected", item)
-//        intent.putExtras(b)
-//        startActivity(intent)
     }
 }
