@@ -4,4 +4,6 @@
     <string name="description">Description</string>
     <string name="news">News</string>
     <string name="search">Search</string>
+    <string name="no_internet">No Internet</string>
+    <string name="no_description">لا يوجد تفاصيل</string>
 </resources>
